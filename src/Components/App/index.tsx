@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Button from "../Button/index";
 import NumberDisplay from "../NumberDisplay";
 import { generateCells } from "../../utils";
+import { Face } from "../../types";
 import "./App.scss";
 
 const App: React.FC = () => {
@@ -26,7 +27,7 @@ const App: React.FC = () => {
             <div className="Header">
                 <NumberDisplay value={50} />
                 <div className="face">
-                    <span role="img" aria-label="face">😁</span>
+                    <span role="img" aria-label="face">{Face.smile}</span>
                 </div>
                 <NumberDisplay value={23} />
             </div>
