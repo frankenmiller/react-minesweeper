@@ -3,7 +3,8 @@
 .App {
     @include borders (#DDD, #7B7B7B);
     background-color: #a2a2a2;    
-    padding: 16px  16px 16px 16px;
+    padding: 16px 16px 16px 16px;
+    transform: translateY(-45px);
 }
 
 .Header {
@@ -17,7 +18,7 @@
 
 .Body {
     @include borders (#7B7B7B, #DDD);
-    margin-top: 16px;
+    margin-top: 10px;
     background-color: #C0C0C0;
     display: grid;
     grid-template-rows: repeat(9, 1fr);
@@ -32,4 +33,16 @@
     font-size: 35px;
     text-align: center;
     cursor: pointer;
+}
+
+#monkeez {
+    @include borders (#7B7B7B, #DDD);  
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    background: black;    
+    // background-color: darkblue;
+    color: #FFF;
+    padding: 10px 10px;
+    margin-bottom: 10px;
 }

@@ -27,21 +27,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-.gorillaz {
-  @include borders (#DDD, #7B7B7B);  
-  font-weight: bold;
-  color: #FFF;
-  background-color: #a2a2a2;
-  padding: 14px;
-  text-align: center;
-  font-size: 18px;
-  transform: translate(-2px, -120px);
-  position: absolute;
-}
-
-.monkeez {
-  @include borders (#7B7B7B, #DDD);  
-  background-color: #252525;
-  padding: 10px 10px;
-}
