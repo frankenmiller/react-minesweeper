@@ -2,6 +2,7 @@
 
 .Button {
     @include borders(#DDD, #7B7B7B);
+    @include buttons;
     width: 30px;
     height: 30px;
     cursor: pointer;
