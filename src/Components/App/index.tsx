@@ -11,24 +11,39 @@ const App: React.FC = () => {
     const [time, setTime] = useState<number>(0);
     const [live, setLive] = useState<boolean>(false);
     
-    useEffect(() => {
-        const handleMoundDown = (): void => {
+    useEffect(() => { // <!--------------- handleMouse up/down useEffect()
+        const handleMouseDown = (): void => {
             setFace(Face.apprehension);
         }
-        const handleMoundUp = (): void => {
+        const handleMouseUp = (): void => {
             setFace(Face.smile);
         }
-        window.addEventListener('mousedown', handleMoundDown);
-        window.addEventListener('mouseup', handleMoundUp);
+        window.addEventListener('mousedown', handleMouseDown);
+        window.addEventListener('mouseup', handleMouseUp);
         return () => {
-            window.removeEventListener("mousedown", handleMoundDown);
-            window.removeEventListener("mouseup", handleMoundUp);
+            window.removeEventListener("mousedown", handleMouseDown);
+            window.removeEventListener("mouseup", handleMouseUp);
         }
-    }, []);
+    }, []); // <!--------------------------- handleMouse up/down useEffect()
+
+    useEffect (() => {
+        if (live) {
+            const timer = setInterval(() => {
+                console.log("the Time: ", time, " secs...");
+                setTime(time + 1);
+            }, 1000);
+            return () => {
+                clearInterval(timer);
+            }; // return statement
+        } // if statement
+    }, [live, time]);
 
     const handleCellClick = (rowParam: number, colParam: number) => (): void => {
-        console.log("You clicked on row: ",rowParam, ", col: ", colParam);
-    }
+        // console.log("You've clicked on row: ",rowParam, ", col: ", colParam);
+        if (!live) { // starts the game
+            setLive(true);
+        }
+    } // <!------------------------------------------------- handleCellClick()
 
     const renderCells = (): React.ReactNode => { // <!---------- renderCells()
         return cells.map((row, rowIndex) => 
@@ -52,7 +67,7 @@ const App: React.FC = () => {
                 <div className="face">
                     <span role="img" aria-label="face">{face}</span>
                 </div>
-                <NumberDisplay value={0} />
+                <NumberDisplay value={time} />
             </div>
             <div className="Body">{renderCells()}</div>
         </div>
