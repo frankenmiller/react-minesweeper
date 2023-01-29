@@ -8,6 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-weight: bold;
     cursor: pointer;
 
     &.visible {
@@ -17,5 +18,35 @@
 
     span {
         font-size: 20px;        
+    }
+
+    &.value-1 {
+        color: blue;
+    }
+
+    &.value-2 {
+        color: green;
+    }
+
+    &.value-3 {
+        color: red;
+    }
+
+    &.value-4 {
+        color: purple;
+    }
+
+    &.value-5 {
+        color: maroon;
+    }
+
+    &.value-6 {
+        color: turquoise;
+    }
+    &.value-7 {
+        color: black;
+    }
+    &.value-8 {
+        color: grey;
     }
 }
