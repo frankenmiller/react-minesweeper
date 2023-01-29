@@ -1,16 +1,18 @@
 .App {
-    background-color: #c2c2c2;    
+    background-color: #a2a2a2;    
     padding: 16px  16px 16px 16px;
     border-width: 4px;
     border-style: solid;
-    border-right-color: #999;
-    border-bottom-color: #999;
+    border-right-color: #7B7B7B;
+    border-bottom-color: #7B7B7B;
     border-left-color: #DDD;
     border-top-color: #DDD;
 }
 
 .Header {
-    background: #C0C0C0;
+    display: flex;
+    // background: #C0C0C0;
+    background: linear-gradient(to top, #252525, #757575);    
     padding: 10px 12px;
     border-width: 4px;
     border-style: solid;
@@ -18,12 +20,15 @@
     border-bottom-color: #FFF;
     border-left-color: #7B7B7B;
     border-top-color: #7B7B7B;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .Body {
     margin-top: 16px;
     border-width: 4px;
     border-style: solid;
+    background-color: #C0C0C0;
     border-right-color: #FFF;
     border-bottom-color: #FFF;
     border-left-color: #7B7B7B;
@@ -31,4 +36,19 @@
     display: grid;
     grid-template-rows: repeat(9, 1fr);
     grid-template-columns: repeat(9, 1fr);
+}
+
+.face {
+    background-color: #a2a2a2;    
+    border-width: 4px;
+    border-style: solid;
+    border-right-color: #7B7B7B;
+    border-bottom-color: #7B7B7B;
+    border-left-color: #DDD;
+    border-top-color: #DDD;    
+    width: 52px;
+    height: 52px;
+    font-size: 35px;
+    text-align: center;
+    cursor: pointer;
 }

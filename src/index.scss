@@ -5,6 +5,7 @@
 
 body {
   margin: 0;
+  background-color: lightgray;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -14,9 +15,42 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  transform: translateY(45px);
+  background-image: linear-gradient(45deg, #222 25%, transparent 25%), linear-gradient(-45deg, #222 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #222 75%), linear-gradient(-45deg, transparent 75%, #222 75%);
+  background-size: 150px 150px;
+  background-position: 0 0, 0 75px, 75px -75px, -75px 0px;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.gorillaz {
+  font-weight: bold;
+  color: #0900FF;
+  background-color: #a2a2a2;
+  padding: 14px;
+  text-align: center;
+  font-size: 18px;
+  transform: translate(-2px, -120px);
+  position: absolute;
+  border-width: 4px;
+  border-style: solid;
+  border-right-color: #7B7B7B;
+  border-bottom-color: #7B7B7B;
+  border-left-color: #DDD;
+  border-top-color: #DDD;  
+}
+
+.monkeez {
+  background-color: #C0C0C0;
+  //background: linear-gradient(to top, #252525, #757575);
+  padding: 10px 10px;
+  border-width: 4px;
+  border-style: solid;
+  border-right-color: #FFF;
+  border-bottom-color: #FFF;
+  border-left-color: #7B7B7B;
+  border-top-color: #7B7B7B;
 }

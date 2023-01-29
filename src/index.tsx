@@ -8,6 +8,11 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
+    <div className="gorillaz">
+      <div className="monkeez">
+        Frankenmiller's Minesweeper Game created  <br /> January 2023 in React using Typescript
+      </div>
+    </div>
     <App />
   </React.StrictMode>
 );
