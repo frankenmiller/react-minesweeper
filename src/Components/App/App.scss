@@ -27,6 +27,7 @@
 
 .face {
     @include borders (#DDD, #7B7B7B);
+    @include buttons;    
     background-color: #a2a2a2;    
     width: 52px;
     height: 52px;

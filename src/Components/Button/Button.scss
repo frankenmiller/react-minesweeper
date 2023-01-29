@@ -2,7 +2,20 @@
 
 .Button {
     @include borders(#DDD, #7B7B7B);
+    @include buttons;
     width: 30px;
     height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
+
+    &.visible {
+        border-color: #7B7B7B;
+        border-width: 1px;
+    }
+
+    span {
+        font-size: 20px;        
+    }
 }
