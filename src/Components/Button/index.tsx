@@ -17,7 +17,7 @@ const Button: React.FC<ButtonProps> = ({ row, col, state, value }) => {
                 return <span role='img' aria-label="bomb">💣</span>
             }
         } else if (state === CellState.flagged) {
-            return <span role='img' aria-label="bomb">🏴‍☠️</span>
+            return <span role='img' aria-label="flag">🏴‍☠️</span>
         }
         return null
     }; // <!------------------------------------------------ renderContent()
