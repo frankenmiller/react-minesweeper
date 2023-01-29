@@ -1,9 +1,8 @@
 .NumberDisplay {
     width: 90px;
     height: 30px;
-    color: linear-gradient(to top, orange, #FF3131);
     font-weight: bold;
-    background: -webkit-linear-gradient(orange, #FF3131);
+    background: -webkit-linear-gradient(#FF3131, orange);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;    
     text-align: center;

@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import NumberDisplay from "../NumberDisplay";
+import { GenerateCells } from "../../utils";
 import "./App.scss";
 
 const App: React.FC = () => {
+    const [cells, setCells] = useState(GenerateCells());
+    console.log("cells", cells);
+
     return (
         <div className="App">
             <div className="Header">
-                <NumberDisplay value={0} />
+                <NumberDisplay value={50} />
                 <div className="face">
                     <span role="img" aria-label="face">😁</span>
                 </div>
