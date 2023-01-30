@@ -92,7 +92,8 @@ const App: React.FC = () => {
                 onClick={handleCellClick}
                 onContext={handleCellContext}
             />
-        ))
+        ) // inner-map
+        ) // outer-map
     } // <!---------------------------------- close ------------- renderCells()
 
     return (
@@ -109,7 +110,7 @@ const App: React.FC = () => {
             </div>
             <div className="Body">{renderCells()}</div>
         </div>
-    )
-};
+    ) // return
+}; // <!--------------------------------------------------- close ----- App()
 
 export default App;
