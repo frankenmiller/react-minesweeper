@@ -3,7 +3,7 @@ import Button from "../Button/index";
 import NumberDisplay from "../NumberDisplay";
 import { generateCells } from "../../utils";
 import { NO_OF_BOMBS } from "../../constants";
-import { Face, Cell, CellState } from "../../types";
+import { Face, Cell, CellState, CellValue } from "../../types";
 import "./App.scss";
 
 const App: React.FC = () => {
@@ -43,7 +43,7 @@ const App: React.FC = () => {
     const handleCellClick = (
         rowParam: number, colParam: number
     ) => (): void => {
-        console.log("You've clicked on row: ",rowParam, ", col: ", colParam);
+        // console.log("You've clicked on row: ",rowParam, ", col: ", colParam);
         if (!live) { // starts the game
             setLive(true);
         }
@@ -65,8 +65,12 @@ const App: React.FC = () => {
             currentCells[rowParam][colParam].state = CellState.flagged;
             setCells(currentCells);
             setBombCount(bombCount - 1);
+        } else if (currentCell.state === CellState.flagged) {
+            currentCells[rowParam][colParam].state = CellState.open;
+            setBombCount(bombCount + 1);
+            setCells(currentCells);
         }
-        console.log("You've right-clicked row: ", rowParam, ", cell: ", colParam)
+        // console.log("You've right-clicked row: ", rowParam, ", cell: ", colParam)
     }; // <!-------- right-click ----------- close ------- handleCellContext()
 
     const handleFaceClick = (): void => { // <!------------- handleFaceClick()
