@@ -38,14 +38,19 @@ const App: React.FC = () => {
         } // if statement
     }, [live, time]); // <!------------ close -------- start timer useEffect()
 
-    const handleCellClick = (rowParam: number, colParam: number) => (): void => {
+    const handleCellClick = (
+        rowParam: number, colParam: number
+    ) => (): void => {
         console.log("You've clicked on row: ",rowParam, ", col: ", colParam);
         if (!live) { // starts the game
             setLive(true);
         }
     } // <!---------------------------- close -------------- handleCellClick()
 
-    const handleCellContext = (rowParam: number, colParam: number) => (): void => {
+    const handleCellContext = ( // <!--------------------- handleCellContext()
+        rowParam: number, colParam: number
+    ) => (e: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
+        e.preventDefault();
         console.log("You've right-clicked row: ", rowParam, ", cell: ", colParam)
     }; // <!--------------------------------- close ------- handleCellContext()
 
