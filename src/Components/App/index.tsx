@@ -26,7 +26,7 @@ const App: React.FC = () => {
         }
     }, []); // <!--------------------------- handleMouse up/down useEffect()
 
-    useEffect (() => {
+    useEffect (() => { // <!------------------------ start timer useEffect()
         if (live) {
             const timer = setInterval(() => {
                 console.log("the Time: ", time, " secs...");
@@ -36,7 +36,7 @@ const App: React.FC = () => {
                 clearInterval(timer);
             }; // return statement
         } // if statement
-    }, [live, time]);
+    }, [live, time]); // <!--------------------------- start timer useEffect()
 
     const handleCellClick = (rowParam: number, colParam: number) => (): void => {
         // console.log("You've clicked on row: ",rowParam, ", col: ", colParam);
