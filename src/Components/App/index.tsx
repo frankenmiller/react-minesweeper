@@ -24,7 +24,7 @@ const App: React.FC = () => {
             window.removeEventListener("mousedown", handleMouseDown);
             window.removeEventListener("mouseup", handleMouseUp);
         }
-    }, []); // <!--------------------------- handleMouse up/down useEffect()
+    }, []); // <!--------- close ----------- handleMouse up/down useEffect()
 
     useEffect (() => { // <!------------------------ start timer useEffect()
         if (live) {
@@ -36,14 +36,22 @@ const App: React.FC = () => {
                 clearInterval(timer);
             }; // return statement
         } // if statement
-    }, [live, time]); // <!--------------------------- start timer useEffect()
+    }, [live, time]); // <!------------ close -------- start timer useEffect()
 
     const handleCellClick = (rowParam: number, colParam: number) => (): void => {
         // console.log("You've clicked on row: ",rowParam, ", col: ", colParam);
         if (!live) { // starts the game
             setLive(true);
         }
-    } // <!------------------------------------------------- handleCellClick()
+    } // <!---------------------------- close -------------- handleCellClick()
+
+    const handleFaceClick = (): void => { // <!------------- handleFaceClick()
+        if (live) {
+            setLive(false);
+            setTime(0);
+            setCells(generateCells());
+        }
+    } // <!---------------------------- close -------------- handleFaceClick()
 
     const renderCells = (): React.ReactNode => { // <!---------- renderCells()
         return cells.map((row, rowIndex) => 
@@ -55,7 +63,7 @@ const App: React.FC = () => {
                 onClick={handleCellClick}
             />
         ))
-    } // <!----------------------------------------------------- renderCells()
+    } // <!---------------------------------- close ------------- renderCells()
 
     return (
         <div className="App">
@@ -64,7 +72,7 @@ const App: React.FC = () => {
             </div>
             <div className="Header">
                 <NumberDisplay value={10} />
-                <div className="face">
+                <div className="face" onClick={handleFaceClick} >
                     <span role="img" aria-label="face">{face}</span>
                 </div>
                 <NumberDisplay value={time} />
