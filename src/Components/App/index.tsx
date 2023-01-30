@@ -40,14 +40,29 @@ const App: React.FC = () => {
         } // if statement
     }, [live, time]); // <!------------ close -------- start timer useEffect()
 
-    const handleCellClick = (
+    const handleCellClick = (  // <!------------------------ handleCellClick()
         rowParam: number, colParam: number
     ) => (): void => {
         // console.log("You've clicked on row: ",rowParam, ", col: ", colParam);
-        if (!live) { // starts the game
-            setLive(true);
+        
+        if (!live) {setLive(true);} // starts the game
+
+        const currentCell = cells[rowParam][colParam];
+        const newCells = cells.slice();
+
+        if (currentCell.state === CellState.flagged || 
+            currentCell.state === CellState.visible) {
+            return;
         }
-    } // <!---------------------------- close -------------- handleCellClick()
+        if (currentCell.value === CellValue.bomb) {
+
+        } else if (currentCell.value === CellValue.none) {
+
+        } else {
+            newCells[rowParam][colParam].state = CellState.visible;
+            setCells(newCells);
+        }
+    }; // <!---------------------------- close -------------- handleCellClick()
 
     const handleCellContext = ( // <!--- right-click ----- handleCellContext()
         rowParam: number, colParam: number
