@@ -29,7 +29,7 @@ const App: React.FC = () => {
     useEffect (() => { // <!------------------------ start timer useEffect()
         if (live) {
             const timer = setInterval(() => {
-                console.log("the Time: ", time, " secs...");
+                // console.log("the Time: ", time, " secs...");
                 setTime(time + 1);
             }, 1000);
             return () => {
@@ -39,11 +39,15 @@ const App: React.FC = () => {
     }, [live, time]); // <!------------ close -------- start timer useEffect()
 
     const handleCellClick = (rowParam: number, colParam: number) => (): void => {
-        // console.log("You've clicked on row: ",rowParam, ", col: ", colParam);
+        console.log("You've clicked on row: ",rowParam, ", col: ", colParam);
         if (!live) { // starts the game
             setLive(true);
         }
     } // <!---------------------------- close -------------- handleCellClick()
+
+    const handleCellContext = (rowParam: number, colParam: number) => (): void => {
+        console.log("You've right-clicked row: ", rowParam, ", cell: ", colParam)
+    }; // <!--------------------------------- close ------- handleCellContext()
 
     const handleFaceClick = (): void => { // <!------------- handleFaceClick()
         if (live) {
@@ -61,6 +65,7 @@ const App: React.FC = () => {
                 row={rowIndex} col={colIndex}
                 state={cell.state} value={cell.value}
                 onClick={handleCellClick}
+                onContext={handleCellContext}
             />
         ))
     } // <!---------------------------------- close ------------- renderCells()
