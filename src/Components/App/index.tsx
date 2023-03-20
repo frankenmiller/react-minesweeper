@@ -13,6 +13,7 @@ const App: React.FC = () => {
     const [time, setTime] = useState<number>(0);
     const [live, setLive] = useState<boolean>(false);
     const [bombCount, setBombCount] = useState<number>(NO_OF_BOMBS);
+    const [hasLost, setHasLost] = useState<boolean>(false);
     
     useEffect(() => { // <!--------------- handleMouse up/down useEffect()
         const handleMouseDown = (): void => {
@@ -41,6 +42,13 @@ const App: React.FC = () => {
         } // if statement
     }, [live, time]); // <!------------ close -------- start timer useEffect()
 
+    useEffect(() => { // <!------------------------ step on bombe useEffect()
+        if (hasLost) {
+            setFace(Face.dead);
+            setLive(false);
+        }
+    }, [hasLost]); // <!---------------- close ----- step on bombe useEffect()
+
     const handleCellClick = (  // <!------------------------ handleCellClick()
         rowParam: number, colParam: number
     ) => (): void => {
@@ -56,7 +64,7 @@ const App: React.FC = () => {
             return;
         }
         if (currentCell.value === CellValue.bomb) {
-
+            setHasLost(true);
         } else if (currentCell.value === CellValue.none) {
             newCells = openMultipleCells(newCells, rowParam, colParam);
             setCells(newCells);
@@ -96,6 +104,7 @@ const App: React.FC = () => {
             setTime(0);
             setBombCount(NO_OF_BOMBS);
             setCells(generateCells());
+            setHasLost(false);
         }
     } // <!---------------------------- close -------------- handleFaceClick()
 
