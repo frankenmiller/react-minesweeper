@@ -102,13 +102,11 @@ const App: React.FC = () => {
     }; // <!-------- right-click ----------- close ------- handleCellContext()
 
     const handleFaceClick = (): void => { // <!------------- handleFaceClick()
-        if (live) {
-            setLive(false);
-            setTime(0);
-            setBombCount(NO_OF_BOMBS);
-            setCells(generateCells());
-            setHasLost(false);
-        }
+        setLive(false);
+        setTime(0);
+        setBombCount(NO_OF_BOMBS);
+        setCells(generateCells());
+        setHasLost(false);
     } // <!---------------------------- close -------------- handleFaceClick()
 
     const renderCells = (): React.ReactNode => { // <!---------- renderCells()
