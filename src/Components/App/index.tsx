@@ -65,6 +65,8 @@ const App: React.FC = () => {
         }
         if (currentCell.value === CellValue.bomb) {
             setHasLost(true);
+            newCells = showAllBombs();
+            setCells(newCells);
         } else if (currentCell.value === CellValue.none) {
             newCells = openMultipleCells(newCells, rowParam, colParam);
             setCells(newCells);
@@ -121,6 +123,22 @@ const App: React.FC = () => {
         ) // inner-map
         ) // outer-map
     } // <!---------------------------------- close ------------- renderCells()
+
+    const showAllBombs = (): Cell[][] => { // <!---------------- showAllBombs()
+        const currentCells = cells.slice();
+        return currentCells.map(row =>
+          row.map(cell => {
+            if (cell.value === CellValue.bomb) {
+              return {
+                ...cell,
+                state: CellState.visible
+              };
+            }
+            return cell;
+          })
+        );
+      }; // <!------------------- close ----------------------- showAllBombs()    
+
 
     return (
         <div className="App">
