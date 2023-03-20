@@ -65,6 +65,7 @@ const App: React.FC = () => {
         }
         if (currentCell.value === CellValue.bomb) {
             setHasLost(true);
+            newCells[rowParam][colParam].red = true;
             newCells = showAllBombs();
             setCells(newCells);
         } else if (currentCell.value === CellValue.none) {
@@ -116,7 +117,7 @@ const App: React.FC = () => {
             <Button 
                 key={`${rowIndex}-${colIndex}`} 
                 row={rowIndex} col={colIndex}
-                state={cell.state} value={cell.value}
+                state={cell.state} value={cell.value} red={cell.red}
                 onClick={handleCellClick}
                 onContext={handleCellContext}
             />
