@@ -61,11 +61,22 @@ const App: React.FC = () => {
         rowParam: number, colParam: number
     ) => (): void => {
         // console.log("You've clicked on row: ",rowParam, ", col: ", colParam);
-        
-        if (!live) {setLive(true);} // starts the game
-
-        const currentCell = cells[rowParam][colParam];
         let newCells = cells.slice();
+        
+        if (!live) {
+            let isABomb = newCells[rowParam][colParam].value === CellValue.bomb;
+            while (isABomb) {
+                newCells = generateCells();
+                console.log("new current cell ", newCells[rowParam][colParam]);
+                if (newCells[rowParam][colParam].value !== CellValue.bomb) {
+                    isABomb = false;
+                    break;
+                } // inner-inner-if-statement
+            } // inner-while-loop
+            setLive(true);
+        } // starts the game
+        
+        const currentCell = newCells[rowParam][colParam];
 
         if (currentCell.state === CellState.flagged || 
             currentCell.state === CellState.visible) {
